@@ -4,8 +4,11 @@ by Travis J I Corcoran  ( tjic@rubyrailsexpert.com )
 ## Installation
 
 In a rails project, add
+
     gem "isbn"            , :git => "http://github.com/tjic/isbn"
+
 to you Gemfile, then from the command line
+
     bundle
 
 ## Intro
