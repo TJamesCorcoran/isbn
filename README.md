@@ -1,0 +1,68 @@
+----------
+ ISBN utilities
+       by Travis J I Corcoran 
+       tjic@rubyrailsexpert.com
+----------
+
+ISBNs (International Standard Book Numbers) define a namespace and
+a number standard for books.
+
+ISBNs come in multiple varieties, which can cause problems. e.g.:
+you may have data that says that book X has ISBN Y, but when you
+scan the barcode on the back of book X, you get number Z.  How do
+you compare a scanned number to a number you received from some
+third party?
+
+This gem provides utilities to translate ISBNs.
+
+First, an overview of ISBN varieties:
+
+
+	10 digits: ISBN10
+		 * 9 data digits
+		 * 1 check digit
+
+	12 digits: ISBN10 + 2-digit suplement
+		  * 9 digits data
+		  * ??
+
+	13 digits: ISBN13 / EAN13 (which is a superset of UPC-13...)
+		  * 3 digits EAN prefix ("Bookland" = "978" or "979")
+		  * 9 ISBN data digits
+		  * 1 check digit (using a different algorithm from above!)
+
+	15 digits: ISBN10 + 5-digit suplement
+		  * 9 digits data
+		  * 1 digit currency code (5 = USD, 0 = UKB)
+		  * 4 digit price
+
+	18 digits:
+		   * 13 digits: ISBN13
+		   * 5 digits: EAN 5 (price info)
+
+How to use this library
+------------------------
+
+This library provides tools to convert any format to 13 digits, at
+which point ISBNs from disparate sources can be compared, e.g.
+
+    Isbn.convert_to_13("978123456789051299") == Isbn.convert_to_13("1234567890")
+
+
+references
+-----------
+	http://www.barcodeisland.com/upcext.phtml
+	https://en.wikipedia.org/wiki/European_Article_Number
+	https://en.wikipedia.org/wiki/EAN_5
+	https://en.wikipedia.org/wiki/EAN_13
+	https://en.wikipedia.org/wiki/ISBN
+
+
+situation at HeavyInk.com
+--------------
+	Diamond solicitations           : ISBN10   (mostly)
+	Diamond website                 : ISBN13+5 (mostly)
+	Our scanner returns             : ISBN13 / ISBN13+5 / 14chars
+	Google wants                    : 10 / 13
+	our canonical db representation : ISBN13
+
