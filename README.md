@@ -1,8 +1,7 @@
 # ISBN utilities
-##       by Travis J I Corcoran 
-##       tjic@rubyrailsexpert.com
+by Travis J I Corcoran  ( tjic@rubyrailsexpert.com )
 
-# Intro
+## Intro
 
 ISBNs (International Standard Book Numbers) define a namespace and
 a number standard for books.
@@ -39,7 +38,7 @@ First, an overview of ISBN varieties:
 		   * 13 digits: ISBN13
 		   * 5 digits: EAN 5 (price info)
 
-# How to use this library
+## How to use this library
 
 
 This library provides tools to convert any format to 13 digits. This
@@ -53,7 +52,7 @@ or before comparison
 
     Isbn.convert_to_13("978123456789051299") == Isbn.convert_to_13("1234567890")
 
-# Note on lossiness
+## Note on lossiness
 
 There are a few conversions that can be made back and forth without
 loss of data: bookland prefix (978 or 979) can be removed or
@@ -65,22 +64,23 @@ removed from a 12, 15, or 18 digit ISBN, that info is gone for good.
 
 # Bugs
 
-[ ] Tests needed
-[ ] This library is focused on converting to ISBN-13. We've got all the raw tools to support bidirectional conversions, but they're not fully supported.
+* [ ] Tests needed
+* [ ] This library is focused on converting to ISBN-13. We've got all the raw tools to support bidirectional conversions, but they're not fully supported.
 
 # References
-	http://www.barcodeisland.com/upcext.phtml
-	https://en.wikipedia.org/wiki/European_Article_Number
-	https://en.wikipedia.org/wiki/EAN_5
-	https://en.wikipedia.org/wiki/EAN_13
-	https://en.wikipedia.org/wiki/ISBN
+
+* http://www.barcodeisland.com/upcext.phtml
+* https://en.wikipedia.org/wiki/European_Article_Number
+* https://en.wikipedia.org/wiki/EAN_5
+* https://en.wikipedia.org/wiki/EAN_13
+* https://en.wikipedia.org/wiki/ISBN
 
 
 # Situation at HeavyInk.com
 
-	Diamond solicitations           : ISBN10   (mostly)
-	Diamond website                 : ISBN13+5 (mostly)
-	Our scanner returns             : ISBN13 / ISBN13+5 / 14chars
-	Google wants                    : 10 / 13
-	our canonical db representation : ISBN13
+* Diamond solicitations           : ISBN10   (mostly)
+* Diamond website                 : ISBN13+5 (mostly)
+* Our scanner returns             : ISBN13 / ISBN13+5 / 14chars
+* Google wants                    : 10 / 13
+* our canonical db representation : ISBN13
 
