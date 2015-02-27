@@ -1,11 +1,11 @@
 # ISBN utilities
-by Travis J I Corcoran  ( tjic@rubyrailsexpert.com )
+by Travis J I Corcoran  ( tjamescorcoran@gmail.com )
 
 ## Installation
 
 In a rails project, add
 
-    gem "isbn"            , :git => "http://github.com/tjic/isbn"
+    gem "isbn"            , :git => "http://github.com/tjamescorcoran/isbn"
 
 to you Gemfile, then from the command line
 
